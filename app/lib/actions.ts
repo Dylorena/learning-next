@@ -80,7 +80,9 @@ export async function updateInvoice(id: string, formData: FormData) {
     WHERE id = ${id}
   `;
   } catch (error) {
-    console.log(error);
+    return {
+      message: "Database Error: Failed to Create Invoice.",
+    };
   }
 
   revalidatePath("/dashboard/invoices");
